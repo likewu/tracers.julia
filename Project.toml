@@ -1,0 +1,4 @@
+name = "algorithm-visualizer"
+uuid = "ca5d7892-3c0a-11ee-be56-0242ac120002"
+authors = ["likewu <likewu@126.com>"]
+version = "0.1.1"
