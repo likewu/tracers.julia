@@ -8,16 +8,22 @@ module Commander
   const MAX_COMMANDS = 1000000;
   const MAX_OBJECTS = 100;
 
+  struct Command
+    key::String
+    method::String
+    args
+  end
+
   objectCount = 0;
 
-  commands: Command[] = [];
-  const key: string;
+  commands = [];
+  const key::String;
 
-  function Commander(iArguments::IArguments)
-    Commander.objectCount++;
+  function Commander(args)
+    objectCount++;
     const className = "Commander"
     key = randomizeKey();
-    command(className, iArguments);
+    command(className, args);
   end
 
   #=
@@ -28,42 +34,44 @@ module Commander
     objectCount = 0;
   end
 
-  function command(key: string | null, method: string, iArguments: IArguments)
-    const args = Array.from(iArguments);
-    push(commands, {
+  function command(key, method, args)
+    const args = Array.from(args);
+    push(commands, Command(
       key,
       method,
       args: JSON.parse(JSON.json(args)),
-    });
-    if (this.commands.length > MAX_COMMANDS) throw new Error("Too Many Commands");
-    if (this.objectCount > MAX_OBJECTS) throw new Error("Too Many Objects");
+    ))
+    if length(commands)>MAX_COMMANDS throw("Too Many Commands") end
+    if objectCount>MAX_OBJECTS throw("Too Many Objects") end
   end
 
   function randomizeKey()
-    return Randomize.String({length: 8, letters: "abcdefghijklmnopqrstuvwxyz0123456789"});
+    return Randomize.String(8, "abcdefghijklmnopqrstuvwxyz0123456789")
   end
 
   #=
    * Remove the tracer.
    =#
-  function destroy() {
-    Commander.objectCount--;
-    this.command("destroy", arguments);
-  }
+  function destroy()
+    objectCount--;
+    command("destroy", []);
+  end
 
-  function command(method: string, iArguments: IArguments) {
-    Commander.command(this.key, method, iArguments);
+  function command(method, args) {
+    command(key, method, args);
   }
 
   function toJSON() {
-    return this.key;
+    return key;
   end
 
   function __init__()
-    if !ENV["ALGORITHM_VISUALIZER"]
-      using HTTP
-      atexit() do
-         resp = HTTP.post("https://algorithm-visualizer.org/api/visualizations", body=Dict("content" => JSON.json(Commander.commands)))
+    atexit() do
+      if !ENV["ALGORITHM_VISUALIZER"]
+        using HTTP
+        resp = HTTP.post("https://algorithm-visualizer.org/api/visualizations", body=Dict("content" => JSON.json(Commander.commands)))
+      else
+        resp=JSON.json(commands)
       end
     end
     nothing

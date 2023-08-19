@@ -1,8 +1,8 @@
-# tracers.jl
+# tracers.julia
 
 > This repository is part of the project [Algorithm Visualizer](https://github.com/algorithm-visualizer).
 
-`tracers.jl` is a visualization library for Julia.
+`tracers.julia` is a visualization library for Julia.
 You can use it on [algorithm-visualizer.org](https://algorithm-visualizer.org/) or locally on your machine.
 
 ## Usage
@@ -47,8 +47,8 @@ Tracer.delay()
 highlight(0)
 ```
 
-Check out the [API reference](https://likewu.github.io/tracers.jl/) for more information.
+Check out the [API reference](https://likewu.github.io/tracers.julia/) for more information.
 
 ## Contributing
 
-Check out the [contributing guidelines](https://github.com/likewu/tracers.jl/blob/master/CONTRIBUTING.md).
+Check out the [contributing guidelines](https://github.com/likewu/tracers.julia/blob/master/CONTRIBUTING.md).
