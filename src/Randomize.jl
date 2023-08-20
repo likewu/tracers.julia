@@ -2,11 +2,10 @@ module Randomize
 
   using Random
 
-  struct Randomizer
-    random
-    type
-    Randomizer()=new(rand((1, 100)),Int)
-  end
+  abstract type Randomizer end
+  random(a::Randomizer) = a.random
+  type(a::Randomizer) = a.type
+  #Randomizer()=Randomizer(rand((1, 100)),Int)
 
   struct Integer <: Randomizer
     _min::Int;
@@ -22,15 +21,15 @@ module Randomize
   end
 
   struct Double <: Randomizer
-    _min::Float;
-    _max::Float;
+    _min::Float64;
+    _max::Float64;
 
-    function Double(min::Float, max::Float)
+    function Double(min::Float64, max::Float64)
       _min = min;
       _max = max
-      type=Float
+      type=Float64
     end
-    Double(min::Float)=new(min, 1)
+    Double(min::Float64)=new(min, 1)
     Double()=new(0)
   end
 
