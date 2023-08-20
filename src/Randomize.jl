@@ -35,14 +35,14 @@ module Randomize
 
   struct String <: Randomizer
     _length::Int
-    _letters::String
+    _letters::Base.String
 
-    function String(length::Int, letters::String)
+    function String(length::Int64, letters::Base.String)
       _length = length
       _letters = letters
-      type=String
+      type=Base.String
     end
-    String(length::Int)=new(length, "abcdefghijklmnopqrstuvwxyz")
+    String(length::Int64)=new(length, "abcdefghijklmnopqrstuvwxyz")
     String()=new(16)
   end
 

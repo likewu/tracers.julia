@@ -1,6 +1,6 @@
 module Commander
 
-  export Commander
+  export randomizeKey
 
   using JSON
   using HTTP
@@ -10,7 +10,7 @@ module Commander
   const MAX_OBJECTS = 100;
 
   struct Command
-    key::String
+    key
     method::String
     args
   end
@@ -18,7 +18,7 @@ module Commander
   objectCount = 0;
 
   commands = [];
-  key = ""
+  key = missing
 
   function Class(args)
     objectCount=objectCount+1
@@ -31,16 +31,22 @@ module Commander
    * @ignore
    =#
   function init()
+    global
     commands = [];
+    global
     objectCount = 0;
   end
 
+  function inc()
+    global
+    objectCount=objectCount+1
+  end
+
   function command(key, method, args)
-    args1 = Array.from(args);
-    push(commands, Command(
+    push!(commands, Command(
       key,
       method,
-      JSON.parse(JSON.json(args1)),
+      JSON.parse(JSON.json(args)),
     ))
     if length(commands)>MAX_COMMANDS throw("Too Many Commands") end
     if objectCount>MAX_OBJECTS throw("Too Many Objects") end
@@ -68,10 +74,12 @@ module Commander
 
   function __init__()
     atexit() do
-      if !ENV["ALGORITHM_VISUALIZER"]
-        resp = HTTP.post("https://algorithm-visualizer.org/api/visualizations", body=Dict("content" => JSON.json(Commander.commands)))
+      if haskey(ENV, "ALGORITHM_VISUALIZER") && !ENV["ALGORITHM_VISUALIZER"]
+        resp = HTTP.post("https://algorithm-visualizer.org/api/visualizations", body=Dict("content" => JSON.json(Dict("Payload"=>Dict("success"=>1, "commands" => commands)))))
       else
-        resp=JSON.json(commands)
+        resp=JSON.json(Dict("Payload"=>Dict("success"=>1, "commands" => commands)))
+        #resp=JSON.json(Dict("Payload"=>Dict("success"=>0, "errorMessage" => "err")))
+        print(resp)
       end
     end
     nothing
