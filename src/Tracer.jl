@@ -9,23 +9,28 @@ module Tracer
      Commander.command(missing, "delay", []);
   end
 
+  struct Class
+    key
+    nofield
+  end
   function Class(title)
     Commander.inc()
     className = "Tracer"
     key = Commander.randomizeKey()
-    Commander.command(className, title)
+    Commander.command(key, className, title)
+    Class(key,missing)
   end
 
   function Class()
       Class([])
   end
 
-  function set()
-    Commander.command("set", []);
+  function set(c::Class)
+    Commander.command(c.key, "set", []);
   end
 
-  function reset()
-    Commander.command("reset", []);
+  function reset(c::Class)
+    Commander.command(c.key, "reset", []);
   end
 
 end # module

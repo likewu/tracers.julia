@@ -18,13 +18,17 @@ module Commander
   objectCount = 0;
 
   commands = [];
-  key = missing
 
+  struct Class
+    key
+    nofield
+  end
   function Class(args)
     objectCount=objectCount+1
     className = "Commander"
     key = randomizeKey()
-    command(className, args)
+    command(key, className, args)
+    Class(key,missing)
   end
 
   #=
@@ -53,7 +57,9 @@ module Commander
   end
 
   function randomizeKey()
-    return Randomize.String(8, "abcdefghijklmnopqrstuvwxyz0123456789")
+    keyRandomizer=Randomize.String(8, "abcdefghijklmnopqrstuvwxyz0123456789")
+    #print(typeof(keyRandomizer),"nnn")
+    Randomize.create(keyRandomizer)
   end
 
   #=
