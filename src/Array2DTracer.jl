@@ -58,8 +58,8 @@ module Array2DTracer
       Commander.command(c.key, "deselect", [x, y]);
   end
 
-  function deselectRow(c::Class, x-1, sy, ey-1)
-      Commander.command(c.key, "deselectRow", [x, sy, ey]);
+  function deselectRow(c::Class, x, sy, ey)
+      Commander.command(c.key, "deselectRow", [x-1, sy, ey-1]);
   end
 
   function deselectCol(c::Class, y, sx, ex)
