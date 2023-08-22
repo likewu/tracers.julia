@@ -15,7 +15,7 @@ module Layout
   end
 
   function setRoot(child)
-      Commander.command(missing, "setRoot", child.key);
+      Commander.command(missing, "setRoot", [child.key]);
   end
 
   function add(c::Class, child, index)
