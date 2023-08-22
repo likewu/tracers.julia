@@ -10,7 +10,7 @@ module VerticalLayout
     Commander.inc()
     className = "VerticalLayout"
     key = Commander.randomizeKey()
-    Commander.command(key, className, [e.key for e in children])
+    Commander.command(key, className, [[e.key for e in children]])
     Class(key,missing)
   end
 
