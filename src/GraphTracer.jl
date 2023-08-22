@@ -172,19 +172,19 @@ module GraphTracer
   end
 
   function visit(c::Class, target, source, weight)
-      Commander.command(c.key, "visit", [target-1, source-1, weight]);
+      Commander.command(c.key, "visit", [target, source, weight]);
   end
 
   function visit(c::Class, target, source)
-      Commander.command(c.key, "visit", [target-1, source-1]);
+      Commander.command(c.key, "visit", [target, source]);
   end
 
   function visit(c::Class, target)
-      Commander.command(c.key, "visit", [target-1]);
+      Commander.command(c.key, "visit", [target]);
   end
 
   function leave(c::Class, target, source, weight)
-      Commander.command(c.key, "leave", [target-1, source-1, weight]);
+      Commander.command(c.key, "leave", [target, source, weight]);
   end
 
   function leave(c::Class, target, source)
@@ -212,7 +212,7 @@ module GraphTracer
   end
 
   function log(c::Class, logTracer)
-      Commander.command(c.key, "log", [logTracer]);
+      Commander.command(c.key, "log", [logTracer.key]);
   end
 
 end # module

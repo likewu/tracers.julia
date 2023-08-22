@@ -1,7 +1,5 @@
 module Commander
 
-  export randomizeKey
-
   using JSON
   using HTTP
   using ..Randomize
