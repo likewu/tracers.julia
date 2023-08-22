@@ -35,184 +35,184 @@ module GraphTracer
 
 
   function set(c::Class, array2d)
-      command("set", [array2d]);
+      Commander.command(c.key, "set", [array2d]);
   end
 
   function directed(c::Class, isDirected)
-      command("directed", [isDirected])
-      return this;
+      Commander.command(c.key, "directed", [isDirected])
+      return c;
   end
 
   function directed(c::Class)
-      command("directed", [])
-      return this;
+      Commander.command(c.key, "directed", [])
+      return c;
   end
 
   function weighted(c::Class, isWeighted)
-      command("weighted", [isWeighted])
-      return this;
+      Commander.command(c.key, "weighted", [isWeighted])
+      return c;
   end
 
   function weighted(c::Class)
-      command("weighted", [])
-      return this;
+      Commander.command(c.key, "weighted", [])
+      return c;
   end
 
   function layoutCircle(c::Class)
-      command("layoutCircle", [])
-      return this;
+      Commander.command(c.key, "layoutCircle", [])
+      return c;
   end
 
   function layoutTree(c::Class, root, sorted)
-      command("layoutTree", [root, sorted])
-      return this;
+      Commander.command(c.key, "layoutTree", [root, sorted])
+      return c;
   end
 
   function layoutTree(c::Class, root)
-      command("layoutTree", [root])
-      return this;
+      Commander.command(c.key, "layoutTree", [root])
+      return c;
   end
 
   function layoutTree(c::Class)
-      command("layoutTree", [])
-      return this;
+      Commander.command(c.key, "layoutTree", [])
+      return c;
   end
 
   function layoutRandom(c::Class)
-      command("layoutRandom", [])
-      return this;
+      Commander.command(c.key, "layoutRandom", [])
+      return c;
   end
 
   function addNode(c::Class, id, weight, x, y, visitedCount, selectedCount)
-      command("addNode", [id, weight, x-1, y-1, visitedCount, selectedCount]);
+      Commander.command(c.key, "addNode", [id, weight, x-1, y-1, visitedCount, selectedCount]);
   end
 
   function addNode(c::Class, id, weight, x, y, visitedCount)
-      command("addNode", [id, weight, x-1, y-1, visitedCount]);
+      Commander.command(c.key, "addNode", [id, weight, x-1, y-1, visitedCount]);
   end
 
   function addNode(c::Class, id, weight, x, y)
-      command("addNode", [id, weight, x-1, y-1]);
+      Commander.command(c.key, "addNode", [id, weight, x-1, y-1]);
   end
 
   function addNode(c::Class, id, weight, x)
-      command("addNode", [id, weight, x-1]);
+      Commander.command(c.key, "addNode", [id, weight, x-1]);
   end
 
   function addNode(c::Class, id, weight)
-      command("addNode", [id, weight]);
+      Commander.command(c.key, "addNode", [id, weight]);
   end
 
   function addNode(c::Class, id)
-      command("addNode", [id]);
+      Commander.command(c.key, "addNode", [id]);
   end
 
   function updateNode(c::Class, id, weight, x, y, visitedCount, selectedCount)
-      command("updateNode", [id, weight, x-1, y-1, visitedCount, selectedCount]);
+      Commander.command(c.key, "updateNode", [id, weight, x-1, y-1, visitedCount, selectedCount]);
   end
 
   function updateNode(c::Class, id, weight, x, y, visitedCount)
-      command("updateNode", [id, weight, x-1, y-1, visitedCount]);
+      Commander.command(c.key, "updateNode", [id, weight, x-1, y-1, visitedCount]);
   end
 
   function updateNode(c::Class, id, weight, x, y)
-      command("updateNode", [id, weight, x-1, y-1]);
+      Commander.command(c.key, "updateNode", [id, weight, x-1, y-1]);
   end
 
   function updateNode(c::Class, id, weight, x)
-      command("updateNode", [id, weight, x-1]);
+      Commander.command(c.key, "updateNode", [id, weight, x-1]);
   end
 
   function updateNode(c::Class, id, weight)
-      command("updateNode", [id, weight]);
+      Commander.command(c.key, "updateNode", [id, weight]);
   end
 
   function updateNode(c::Class, id)
-      command("updateNode", [id]);
+      Commander.command(c.key, "updateNode", [id]);
   end
 
   function removeNode(c::Class, id)
-      command("removeNode", [id]);
+      Commander.command(c.key, "removeNode", [id]);
   end
 
   function addEdge(c::Class, source, target, weight, visitedCount, selectedCount)
-      command("addEdge", [source, target, weight, visitedCount, selectedCount]);
+      Commander.command(c.key, "addEdge", [source, target, weight, visitedCount, selectedCount]);
   end
 
   function addEdge(c::Class, source, target, weight, visitedCount)
-      command("addEdge", [source, target, weight, visitedCount]);
+      Commander.command(c.key, "addEdge", [source, target, weight, visitedCount]);
   end
 
   function addEdge(c::Class, source, target, weight)
-      command("addEdge", [source, target, weight]);
+      Commander.command(c.key, "addEdge", [source, target, weight]);
   end
 
   function addEdge(c::Class, source, target)
-      command("addEdge", [source, target]);
+      Commander.command(c.key, "addEdge", [source, target]);
   end
 
   function updateEdge(c::Class, source, target, weight, visitedCount, selectedCount)
-      command("updateEdge", [source, target, weight, visitedCount, selectedCount]);
+      Commander.command(c.key, "updateEdge", [source, target, weight, visitedCount, selectedCount]);
   end
 
   function updateEdge(c::Class, source, target, weight, visitedCount)
-      command("updateEdge", [source, target, weight, visitedCount]);
+      Commander.command(c.key, "updateEdge", [source, target, weight, visitedCount]);
   end
 
   function updateEdge(c::Class, source, target, weight)
-      command("updateEdge", [source, target, weight]);
+      Commander.command(c.key, "updateEdge", [source, target, weight]);
   end
 
   function updateEdge(c::Class, source, target)
-      command("updateEdge", [source, target]);
+      Commander.command(c.key, "updateEdge", [source, target]);
   end
 
   function removeEdge(c::Class, source, target)
-      command("removeEdge", [source, target]);
+      Commander.command(c.key, "removeEdge", [source, target]);
   end
 
   function visit(c::Class, target, source, weight)
-      command("visit", [target, source, weight]);
+      Commander.command(c.key, "visit", [target, source, weight]);
   end
 
   function visit(c::Class, target, source)
-      command("visit", [target, source]);
+      Commander.command(c.key, "visit", [target, source]);
   end
 
   function visit(c::Class, target)
-      command("visit", [target]);
+      Commander.command(c.key, "visit", [target]);
   end
 
   function leave(c::Class, target, source, weight)
-      command("leave", [target, source, weight]);
+      Commander.command(c.key, "leave", [target, source, weight]);
   end
 
   function leave(c::Class, target, source)
-      command("leave", [target, source]);
+      Commander.command(c.key, "leave", [target, source]);
   end
 
   function leave(c::Class, target)
-      command("leave", [target]);
+      Commander.command(c.key, "leave", [target]);
   end
 
   function select(c::Class, target, source)
-      command("select", [target, source]);
+      Commander.command(c.key, "select", [target, source]);
   end
 
   function select(c::Class, target)
-      command("select", [target]);
+      Commander.command(c.key, "select", [target]);
   end
 
   function deselect(c::Class, target, source)
-      command("deselect", [target, source]);
+      Commander.command(c.key, "deselect", [target, source]);
   end
 
   function deselect(c::Class, target)
-      command("deselect", [target]);
+      Commander.command(c.key, "deselect", [target]);
   end
 
   function log(c::Class, logTracer)
-      command("log", [logTracer]);
+      Commander.command(c.key, "log", [logTracer]);
   end
 
 end # module

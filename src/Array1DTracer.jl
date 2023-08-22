@@ -18,40 +18,40 @@ module Array1DTracer
       Class("")
   end
 
-  function set(array1d)
-      command(c.key, "set", [array1d]);
+  function set(c::Class, array1d)
+      Commander.command(c.key, "set", [array1d]);
   end
 
-  function patch(x, v)
-      command(c.key, "patch", [x-1, v]);
+  function patch(c::Class, x, v)
+      Commander.command(c.key, "patch", [x-1, v]);
   end
 
-  function patch(x)
-      command(c.key, "patch", [x-1]);
+  function patch(c::Class, x)
+      Commander.command(c.key, "patch", [x-1]);
   end
 
-  function depatch(x)
-      command(c.key, "depatch", [x-1]);
+  function depatch(c::Class, x)
+      Commander.command(c.key, "depatch", [x-1]);
   end
 
-  function select(sx, ex)
-      command(c.key, "select", [sx-1, ex-1]);
+  function select(c::Class, sx, ex)
+      Commander.command(c.key, "select", [sx-1, ex-1]);
   end
 
-  function select(x)
-      command(c.key, "select", [x-1]);
+  function select(c::Class, x)
+      Commander.command(c.key, "select", [x-1]);
   end
 
-  function deselect(sx, ex)
-      command(c.key, "deselect", [sx-1, ex-1]);
+  function deselect(c::Class, sx, ex)
+      Commander.command(c.key, "deselect", [sx-1, ex-1]);
   end
 
-  function deselect(x)
-      command(c.key, "deselect", [x-1]);
+  function deselect(c::Class, x)
+      Commander.command(c.key, "deselect", [x-1]);
   end
 
-  function chart(chartTracer)
-      command(c.key, "chart", [chartTracer]);
+  function chart(c::Class, chartTracer)
+      Commander.command(c.key, "chart", [chartTracer]);
   end
 
 end # module
