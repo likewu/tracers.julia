@@ -65,13 +65,13 @@ module Commander
   #=
    * Remove the tracer.
    =#
-  function destroy()
+  function destroy(c::Class)
     objectCount=objectCount-1
-    command("destroy", []);
+    command(c, "destroy", []);
   end
 
-  function command(method, args)
-    command(key, method, args);
+  function command(c::Class, method, args)
+    command(c.key, method, args);
   end
 
   function toJSON()

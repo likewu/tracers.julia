@@ -19,7 +19,7 @@ module Layout
   end
 
   function add(c::Class, child, index)
-      Commander.command(c.key, "add", [child, index]);
+      Commander.command(c.key, "add", [child, index-1]);
   end
 
   function add(c::Class, child)

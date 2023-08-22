@@ -84,19 +84,19 @@ module GraphTracer
   end
 
   function addNode(c::Class, id, weight, x, y, visitedCount, selectedCount)
-      command("addNode", [id, weight, x, y, visitedCount, selectedCount]);
+      command("addNode", [id, weight, x-1, y-1, visitedCount, selectedCount]);
   end
 
   function addNode(c::Class, id, weight, x, y, visitedCount)
-      command("addNode", [id, weight, x, y, visitedCount]);
+      command("addNode", [id, weight, x-1, y-1, visitedCount]);
   end
 
   function addNode(c::Class, id, weight, x, y)
-      command("addNode", [id, weight, x, y]);
+      command("addNode", [id, weight, x-1, y-1]);
   end
 
   function addNode(c::Class, id, weight, x)
-      command("addNode", [id, weight, x]);
+      command("addNode", [id, weight, x-1]);
   end
 
   function addNode(c::Class, id, weight)
@@ -108,19 +108,19 @@ module GraphTracer
   end
 
   function updateNode(c::Class, id, weight, x, y, visitedCount, selectedCount)
-      command("updateNode", [id, weight, x, y, visitedCount, selectedCount]);
+      command("updateNode", [id, weight, x-1, y-1, visitedCount, selectedCount]);
   end
 
   function updateNode(c::Class, id, weight, x, y, visitedCount)
-      command("updateNode", [id, weight, x, y, visitedCount]);
+      command("updateNode", [id, weight, x-1, y-1, visitedCount]);
   end
 
   function updateNode(c::Class, id, weight, x, y)
-      command("updateNode", [id, weight, x, y]);
+      command("updateNode", [id, weight, x-1, y-1]);
   end
 
   function updateNode(c::Class, id, weight, x)
-      command("updateNode", [id, weight, x]);
+      command("updateNode", [id, weight, x-1]);
   end
 
   function updateNode(c::Class, id, weight)
