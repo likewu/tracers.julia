@@ -10,11 +10,11 @@ module Array2DTracer
       Commander.inc()
       className = "Array2DTracer"
       key = Commander.randomizeKey()
-      Commander.command(key, className, title)
+      Commander.command(key, className, [title])
       new(key,missing)
     end
     function Class()
-        Class([])
+        Class("")
     end
   end
 

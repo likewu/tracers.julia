@@ -17,12 +17,12 @@ module GraphTracer
     Commander.inc()
     className = "GraphTracer"
     key = Commander.randomizeKey()
-    Commander.command(key, className, title)
+    Commander.command(key, className, [title])
     Class(key,missing)
   end
 
   function Class()
-      Class([])
+      Class("")
   end
 
   function set(c::Class)

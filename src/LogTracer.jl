@@ -10,12 +10,12 @@ module LogTracer
     Commander.inc()
     className = "LogTracer"
     key = Commander.randomizeKey()
-    Commander.command(key, className, title)
+    Commander.command(key, className, [title])
     Class(key,missing)
   end
 
   function Class()
-      Class([])
+      Class("")
   end
 
   function set(c::Class, log)

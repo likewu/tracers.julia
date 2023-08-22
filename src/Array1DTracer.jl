@@ -10,12 +10,12 @@ module Array1DTracer
     Commander.inc()
     className = "Array1DTracer"
     key = Commander.randomizeKey()
-    Commander.command(key, className, title)
+    Commander.command(key, className, [title])
     Class(key,missing)
   end
 
   function Class()
-      Class([])
+      Class("")
   end
 
   function set(array1d)
